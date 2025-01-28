@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map and Places</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="map-page" onLoad="app.onInit()">
+    <header>
+      <h1>Place Keeper</h1>
+      <h3>Find your way back to your best places</h3>
+      <nav>
+        <button onClick="showSection('map', event)">Map</button>
+        <button onClick="showSection('user-pref', event)">
+          User Preferences
+        </button>
+
+        <!-- <a href="">Places</a>
+        <a href="">Settings</a> -->
+      </nav>
+    </header>
+    <section id="map" class="hidden">
+      <div id="googleMap"></div>
+      <!-- <div class="places">
+      </div> -->
+      <ul class="places"></ul>
+    </section>
+    <section id="user-pref" class="hidden">
+      <div class="container">
+        <h1>User Preferences</h1>
+        <div class="input-group">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" placeholder="Insert your email here" />
+        </div>
+        <div class="input-group">
+          <label for="age">Age</label>
+          <input
+            type="range"
+            id="age"
+            min="0"
+            max="100"
+            value="18"
+            oninput="document.getElementById('ageValue').textContent = this.value"
+          />
+          <span id="ageValue">18</span>
+        </div>
+        <div class="input-group">
+          <label>Colors -</label>
+        </div>
+        <div class="input-group">
+          <label for="bgColor">Set Background Color</label>
+          <input type="color" id="bgColor" value="#000000" />
+        </div>
+        <div class="input-group">
+          <label for="textColor">Set Text Color</label>
+          <input type="color" id="textColor" value="#000000" />
+        </div>
+        <div class="input-group">
+          <label for="birthDate">Birth Date</label>
+          <input type="date" id="birthDate" />
+        </div>
+        <div class="input-group">
+          <label for="birthTime">Birth Time</label>
+          <input type="time" id="birthTime" />
+        </div>
+        <div class="set-button">
+          <button>Set</button>
+        </div>
+      </div>
+    </section>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYchswnF6RG8cBN7TXJJNKFYlGC9nwR9w&loading=async"></script>
+    <script src="lib/axios.js"></script>
+    <script type="module" src="js/place.contorller.js"></script>
+    <script src="js/home.controller.js"></script>
+  </body>
+</html>
